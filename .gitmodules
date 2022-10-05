@@ -1,0 +1,18 @@
+[submodule "components/tuple"]
+	path = components/tuple
+	url = ../tuple
+[submodule "components/pp"]
+	path = components/pp
+	url = ../pp
+[submodule "components/mp"]
+	path = components/mp
+	url = ../mp
+[submodule "components/fmt"]
+	path = components/fmt
+	url = ../fmt
+[submodule "components/googletest"]
+	path = components/googletest
+	url = ../googletest
+[submodule "components/cmake"]
+	path = components/cmake
+	url = ../cmake
