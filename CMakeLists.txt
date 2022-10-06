@@ -25,8 +25,10 @@ make_submodule_pull_target()
 
 # Component options
 #
-set(CPP_CORE_COMPONENT_LIST "pp;mp;tuple")
+set(CPP_CORE_COMPONENT_LIST "pp;mp;tuple;stream")
 option(CPP_CORE_COMPONENTS "Build these components (and dependencies as needed)" "pp")
+option(CPP_CORE_TESTS "Test these components")
+option(CPP_CORE_TEST_ALL "Test all components" OFF)
 
 foreach(ITEM ${CPP_CORE_COMPONENTS})
   if (NOT (${ITEM} IN_LIST CPP_CORE_COMPONENT_LIST))
@@ -34,12 +36,25 @@ foreach(ITEM ${CPP_CORE_COMPONENTS})
   endif()
 endforeach()
 
+if (${CPP_CORE_TEST_ALL})
+  foreach(ITEM ${CPP_CORE_COMPONENTS})
+    string(TOUPPER ${ITEM} item)
+    set(${item}_TEST ON)
+  endforeach()
+else()
+  foreach(ITEM ${CPP_CORE_TESTS})
+    string(TOUPPER ${ITEM} item)
+    set(${item}_TEST ON)
+  endforeach()
+endif()
+
 # Output configuration
 #
 message("-- super: Install prefix: ${CMAKE_INSTALL_PREFIX}")
 
 foreach(ITEM ${CPP_CORE_COMPONENTS})
-  message("-- super: Building ${ITEM}")
+  string(TOUPPER ${ITEM} item)
+  message("-- super: Building ${ITEM}, Testing: ${${item}_TEST}")
 endforeach()
 
 # Add the components

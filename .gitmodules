@@ -16,3 +16,69 @@
 [submodule "components/cmake"]
 	path = components/cmake
 	url = ../cmake
+[submodule "components/bzip2"]
+	path = components/bzip2
+	url = ../bzip2
+[submodule "components/cc"]
+	path = components/cc
+	url = ../cc
+[submodule "components/chrono"]
+	path = components/chrono
+	url = ../chrono
+[submodule "components/codec"]
+	path = components/codec
+	url = ../codec
+[submodule "components/cppzmq"]
+	path = components/cppzmq
+	url = ../cppzmq
+[submodule "components/cpr"]
+	path = components/cpr
+	url = ../cpr
+[submodule "components/date"]
+	path = components/date
+	url = ../date
+[submodule "components/fp"]
+	path = components/fp
+	url = ../fp
+[submodule "components/inja"]
+	path = components/inja
+	url = ../inja
+[submodule "components/ixwebsocket"]
+	path = components/ixwebsocket
+	url = ../ixwebsocket
+[submodule "components/json"]
+	path = components/json
+	url = ../json
+[submodule "components/libzmq"]
+	path = components/libzmq
+	url = ../libzmq
+[submodule "components/ply"]
+	path = components/ply
+	url = ../ply
+[submodule "components/spdlog"]
+	path = components/spdlog
+	url = ../spdlog
+[submodule "components/strand"]
+	path = components/strand
+	url = ../strand
+[submodule "components/stream"]
+	path = components/stream
+	url = ../stream
+[submodule "components/string"]
+	path = components/string
+	url = ../string
+[submodule "components/util"]
+	path = components/util
+	url = ../util
+[submodule "components/xsimd"]
+	path = components/xsimd
+	url = ../xsimd
+[submodule "components/xtensor"]
+	path = components/xtensor
+	url = ../xtensor
+[submodule "components/xtl"]
+	path = components/xtl
+	url = ../xtl
+[submodule "components/zstd"]
+	path = components/zstd
+	url = ../zstd
