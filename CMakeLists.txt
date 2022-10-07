@@ -25,7 +25,23 @@ make_submodule_pull_target()
 
 # Component options
 #
-set(CPP_CORE_COMPONENT_LIST "chrono;date;fp;json;mp;pp;tuple;stream;string;util")
+set(CPP_CORE_COMPONENT_LIST
+  bzip2
+  cc
+  chrono
+  codec
+  date
+  fp
+  json
+  mp
+  pp
+  tuple
+  strand
+  stream
+  string
+  util
+  zstd)
+
 option(CPP_CORE_COMPONENTS "Build these components (and dependencies as needed)" "pp")
 option(CPP_CORE_COMPONENTS_ALL "Build all components" OFF)
 option(CPP_CORE_TESTS "Test these components")
