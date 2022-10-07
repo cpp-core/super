@@ -30,26 +30,26 @@ set(CPP_CORE_COMPONENT_LIST
   cc
   chrono
   codec
-#  cppzmq
-#  cpr
+  cppzmq
+  cpr
   date
   fmt
   fp
   gtest
   inja
-#  ixwebsocket
+  ixwebsocket
   json
-#  libzmq
+  libzmq
   mp
   ply
   pp
-#  spdlog
+  spdlog
   strand
   stream
   string
   tuple
   util
-#  xtensor
+  xtensor
   zstd)
 
 option(CPP_CORE_COMPONENTS "Build these components (and dependencies as needed)" "pp")
