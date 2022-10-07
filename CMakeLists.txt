@@ -32,8 +32,10 @@ set(CPP_CORE_COMPONENT_LIST
   codec
   date
   fp
+  inja
   json
   mp
+  ply
   pp
   tuple
   strand
