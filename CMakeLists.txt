@@ -30,18 +30,26 @@ set(CPP_CORE_COMPONENT_LIST
   cc
   chrono
   codec
+#  cppzmq
+#  cpr
   date
+  fmt
   fp
+  gtest
   inja
+#  ixwebsocket
   json
+#  libzmq
   mp
   ply
   pp
-  tuple
+#  spdlog
   strand
   stream
   string
+  tuple
   util
+#  xtensor
   zstd)
 
 option(CPP_CORE_COMPONENTS "Build these components (and dependencies as needed)" "pp")
@@ -85,5 +93,6 @@ endforeach()
 enable_testing()
 
 foreach(ITEM ${CPP_CORE_COMPONENTS})
+  message("-- super: Adding ${ITEM}")
   cmake_language(CALL add_${ITEM})
 endforeach()
