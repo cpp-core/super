@@ -25,10 +25,15 @@ make_submodule_pull_target()
 
 # Component options
 #
-set(CPP_CORE_COMPONENT_LIST "pp;mp;tuple;stream")
+set(CPP_CORE_COMPONENT_LIST "fp;mp;pp;tuple;stream;string")
 option(CPP_CORE_COMPONENTS "Build these components (and dependencies as needed)" "pp")
+option(CPP_CORE_COMPONENTS_ALL "Build all components" OFF)
 option(CPP_CORE_TESTS "Test these components")
 option(CPP_CORE_TEST_ALL "Test all components" OFF)
+
+if (${CPP_CORE_COMPONENTS_ALL})
+  set(CPP_CORE_COMPONENTS ${CPP_CORE_COMPONENT_LIST})
+endif()
 
 foreach(ITEM ${CPP_CORE_COMPONENTS})
   if (NOT (${ITEM} IN_LIST CPP_CORE_COMPONENT_LIST))
