@@ -5,6 +5,10 @@ project (super VERSION 0.1 LANGUAGES C CXX)
 #
 include_guard()
 
+# CMP0077 - New behavior allows overriding option with normal variable.
+# 
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
+
 # Set the root project directories.
 #
 set(CPP_CORE_SOURCE_DIR ${PROJECT_SOURCE_DIR})
@@ -25,32 +29,43 @@ make_submodule_pull_target()
 
 # Component options
 #
-set(CPP_CORE_COMPONENT_LIST
-  bzip2
+set(CPP_CORE_INTERNAL_COMPONENT_LIST
   cc
   chrono
   codec
-  cppzmq
-  cpr
-  date
-  fmt
   fp
-  gtest
-  inja
-  ixwebsocket
-  json
-  libzmq
   mp
   ply
   pp
-  spdlog
   strand
   stream
   string
   tuple
   util
+  )
+
+set(CPP_CORE_EXTERNAL_COMPONENT_LIST
+  bzip2
+  cppzmq
+  cpr
+  date
+  fmt
+  gtest
+  inja
+  ixwebsocket
+  json
+  libzmq
+  spdlog
   xtensor
   zstd)
+
+foreach(ITEM ${CPP_CORE_INTERNAL_COMPONENT_LIST})
+  list(APPEND CPP_CORE_COMPONENT_LIST ${ITEM})
+endforeach()
+
+foreach(ITEM ${CPP_CORE_EXTERNAL_COMPONENT_LIST})
+  list(APPEND CPP_CORE_COMPONENT_LIST ${ITEM})
+endforeach()
 
 option(CPP_CORE_COMPONENTS "Build these components (and dependencies as needed)" "pp")
 option(CPP_CORE_COMPONENTS_ALL "Build all components" OFF)
@@ -69,8 +84,10 @@ endforeach()
 
 if (${CPP_CORE_TEST_ALL})
   foreach(ITEM ${CPP_CORE_COMPONENTS})
-    string(TOUPPER ${ITEM} item)
-    set(${item}_TEST ON)
+    if(${ITEM} IN_LIST CPP_CORE_INTERNAL_COMPONENT_LIST)
+      string(TOUPPER ${ITEM} item)
+      set(${item}_TEST ON)
+    endif()
   endforeach()
 else()
   foreach(ITEM ${CPP_CORE_TESTS})
