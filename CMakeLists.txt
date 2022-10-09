@@ -7,6 +7,7 @@ include_guard()
 
 # CMP0077 - New behavior allows overriding option with normal variable.
 # 
+set(CMAKE_POLICY_DEFAULT_CMP0074 NEW)
 set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 
 # Set the project directories.
