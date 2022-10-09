@@ -9,10 +9,12 @@ include_guard()
 # 
 set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 
-# Set the root project directories.
+# Set the project directories.
 #
 set(CPP_CORE_SOURCE_DIR ${PROJECT_SOURCE_DIR})
 set(CPP_CORE_BINARY_DIR ${PROJECT_BINARY_DIR})
+set(CPP_CORE_SOURCE_COMPONENT_DIR ${CPP_CORE_SOURCE_DIR}/components)
+set(CPP_CORE_BINARY_COMPONENT_DIR ${CPP_CORE_BINARY_DIR}/components)
 
 # Include the cmake helpers
 #
